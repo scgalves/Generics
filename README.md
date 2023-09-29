@@ -5,6 +5,12 @@
 Projetos desenvolvidos em Delphi utilizando atributos genéricos (Generics).
 ## TList
 ![Imagem 1](https://github.com/scgalves/Generics/blob/main/img/TList.png)
+## TQueue
+[...]
+## TStack
+[...]
+## TDictionary
+[...]
 
 # Tecnologia utilizada
 Delphi 11.3 CE Alexandria
