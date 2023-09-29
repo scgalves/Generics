@@ -4,7 +4,7 @@
 # Sobre os projetos
 Projetos desenvolvidos em Delphi utilizando atributos genéricos (Generics).
 ## TList
-[![TList]](https://github.com/scgalves/Generics/blob/main/LICENSE)
+![Imagem 1](https://github.com/scgalves/Generics/blob/main/img/tlist.png)
 
 # Tecnologia utilizada
 Delphi 11.3 CE Alexandria
