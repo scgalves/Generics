@@ -4,7 +4,7 @@
 # Sobre os projetos
 Projetos desenvolvidos em Delphi utilizando atributos genéricos (Generics).
 ## TList
-[![Imagem 1](https://github.com/scgalves/Generics/blob/main/img/TList-1.png)](https://github.com/scgalves/Generics/TList)
+[![Imagem 1](https://github.com/scgalves/Generics/blob/main/img/TList-1.png)](https://github.com/scgalves/Generics/tree/main/TList)
 ## TQueue
 [...]
 ## TStack
