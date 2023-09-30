@@ -11,9 +11,11 @@ object ViewPrincipal: TViewPrincipal
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  KeyPreview = True
   Position = poMainFormCenter
   OnClose = FormClose
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   TextHeight = 15
   object GridPanel1: TGridPanel
     AlignWithMargins = True
@@ -29,114 +31,56 @@ object ViewPrincipal: TViewPrincipal
     BevelOuter = bvNone
     ColumnCollection = <
       item
-        Value = 20.000000000000000000
+        Value = 33.333333333333340000
       end
       item
-        Value = 20.000000000000000000
+        Value = 33.333333333333340000
       end
       item
-        Value = 20.000000000000000000
-      end
-      item
-        Value = 20.000000000000000000
-      end
-      item
-        Value = 20.000000000000000000
+        Value = 33.333333333333310000
       end>
     ControlCollection = <
       item
-        Column = 3
-        Control = btnAdd
-        Row = 1
-      end
-      item
-        Column = 3
-        Control = btnDelete
-        Row = 2
-      end
-      item
-        Column = 3
-        Control = btnList
-        Row = 3
-      end
-      item
-        Column = 3
-        Control = btnCapacity
-        Row = 6
-      end
-      item
-        Column = 4
-        Control = btnCount
-        Row = 4
-      end
-      item
-        Column = 4
-        Control = btnOnNotify
-        Row = 5
-      end
-      item
-        Column = 0
-        ColumnSpan = 3
+        Column = 1
+        ColumnSpan = 2
         Control = Memo1
         Row = 1
-        RowSpan = 6
+        RowSpan = 5
       end
       item
         Column = 0
-        Control = SpinEdit1
+        Control = RadioGroup1
         Row = 0
+        RowSpan = 5
       end
       item
-        Column = 4
-        Control = btnExtract
-        Row = 2
-      end
-      item
-        Column = 4
-        Control = btnInsert
-        Row = 1
-      end
-      item
-        Column = 4
-        Control = btnSort
-        Row = 3
-      end
-      item
-        Column = 3
-        Control = btnReverse
-        Row = 4
-      end
-      item
-        Column = 4
-        Control = btnTrimExcess
-        Row = 6
-      end
-      item
-        Column = 3
-        Control = btnClear
+        Column = 0
+        Control = btnOk
         Row = 5
+      end
+      item
+        Column = 1
+        Control = Panel1
+        Row = 0
       end>
     RowCollection = <
       item
-        Value = 14.285714285714290000
+        Value = 16.666666666666670000
       end
       item
-        Value = 14.285714285714290000
+        Value = 16.666666666666670000
       end
       item
-        Value = 14.285714285714290000
+        Value = 16.666666666666670000
       end
       item
-        Value = 14.285714285714290000
+        Value = 16.666666666666670000
       end
       item
-        Value = 14.285714285714290000
+        Value = 16.666666666666670000
       end
       item
-        Value = 14.285714285714290000
-      end
-      item
-        Value = 14.285714285714270000
+        Value = 16.666666666666640000
       end>
     TabOrder = 0
     ExplicitWidth = 604
@@ -144,209 +88,103 @@ object ViewPrincipal: TViewPrincipal
     DesignSize = (
       608
       422)
-    object btnAdd: TSpeedButton
-      Left = 371
-      Top = 73
-      Width = 108
-      Height = 35
-      Margins.Left = 10
-      Margins.Top = 15
-      Margins.Right = 5
-      Margins.Bottom = 15
-      Anchors = []
-      Caption = 'Add'
-      OnClick = btnAddClick
-      ExplicitTop = 12
-    end
-    object btnDelete: TSpeedButton
-      Left = 371
-      Top = 133
-      Width = 108
-      Height = 35
-      Margins.Left = 10
-      Margins.Top = 15
-      Margins.Right = 5
-      Margins.Bottom = 15
-      Anchors = []
-      Caption = 'Delete'
-      OnClick = btnDeleteClick
-      ExplicitTop = 83
-    end
-    object btnList: TSpeedButton
-      Left = 371
-      Top = 193
-      Width = 108
-      Height = 35
-      Margins.Left = 10
-      Margins.Top = 15
-      Margins.Right = 5
-      Margins.Bottom = 15
-      Anchors = []
-      Caption = 'List'
-      OnClick = btnListClick
-      ExplicitLeft = 370
-      ExplicitTop = 138
-    end
-    object btnCapacity: TSpeedButton
-      Left = 371
-      Top = 374
-      Width = 108
-      Height = 35
-      Margins.Left = 10
-      Margins.Top = 15
-      Margins.Right = 5
-      Margins.Bottom = 15
-      Anchors = []
-      Caption = 'Capacity'
-      OnClick = btnCapacityClick
-      ExplicitTop = 364
-    end
-    object btnCount: TSpeedButton
-      Left = 493
-      Top = 253
-      Width = 108
-      Height = 35
-      Margins.Left = 10
-      Margins.Top = 15
-      Margins.Right = 5
-      Margins.Bottom = 15
-      Anchors = []
-      Caption = 'Count'
-      OnClick = btnCountClick
-      ExplicitTop = 223
-    end
-    object btnOnNotify: TSpeedButton
-      Left = 493
-      Top = 314
-      Width = 108
-      Height = 35
-      Margins.Left = 10
-      Margins.Top = 15
-      Margins.Right = 5
-      Margins.Bottom = 15
-      Anchors = []
-      Caption = 'OnNotify'
-      OnClick = btnOnNotifyClick
-      ExplicitTop = 294
-    end
     object Memo1: TMemo
       AlignWithMargins = True
-      Left = 5
-      Top = 65
-      Width = 355
-      Height = 352
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
+      Left = 213
+      Top = 80
+      Width = 385
+      Height = 332
+      Margins.Left = 10
+      Margins.Top = 10
+      Margins.Right = 10
+      Margins.Bottom = 10
       TabStop = False
       Align = alClient
       ReadOnly = True
-      TabOrder = 1
-      ExplicitLeft = 247
-      ExplicitTop = 366
-      ExplicitWidth = 352
-      ExplicitHeight = 50
-    end
-    object SpinEdit1: TSpinEdit
-      AlignWithMargins = True
-      Left = 5
-      Top = 18
-      Width = 111
-      Height = 24
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Anchors = []
-      MaxValue = 1000
-      MinValue = 1
       TabOrder = 0
-      Value = 1
+      ExplicitLeft = 211
+      ExplicitWidth = 383
+      ExplicitHeight = 331
     end
-    object btnExtract: TSpeedButton
-      Left = 493
-      Top = 133
-      Width = 108
-      Height = 35
+    object RadioGroup1: TRadioGroup
+      AlignWithMargins = True
+      Left = 10
+      Top = 10
+      Width = 183
+      Height = 332
       Margins.Left = 10
-      Margins.Top = 15
-      Margins.Right = 5
-      Margins.Bottom = 15
-      Anchors = []
-      Caption = 'Extract'
-      OnClick = btnExtractClick
-      ExplicitTop = 83
+      Margins.Top = 10
+      Margins.Right = 10
+      Margins.Bottom = 10
+      Align = alClient
+      Caption = 'Op'#231#245'es'
+      Items.Strings = (
+        'Add'
+        'Insert #2'
+        'Delete'
+        'Extract'
+        'List'
+        'Sort'
+        'Reverse'
+        'Count'
+        'Clear'
+        'OnNotify'
+        'Capacity'
+        'TrimExcess')
+      TabOrder = 1
+      OnClick = RadioGroup1Click
+      ExplicitWidth = 181
+      ExplicitHeight = 331
     end
-    object btnInsert: TSpeedButton
-      Left = 493
-      Top = 73
-      Width = 108
-      Height = 35
-      Margins.Left = 10
-      Margins.Top = 15
-      Margins.Right = 5
-      Margins.Bottom = 15
+    object btnOk: TSpeedButton
+      Left = 61
+      Top = 376
+      Width = 80
+      Height = 22
       Anchors = []
-      Caption = 'Insert #2'
-      OnClick = btnInsertClick
-      ExplicitTop = 12
+      Caption = 'OK (F2)'
+      OnClick = btnOkClick
+      ExplicitLeft = 76
     end
-    object btnSort: TSpeedButton
-      Left = 493
-      Top = 193
-      Width = 108
-      Height = 35
-      Margins.Left = 10
-      Margins.Top = 15
-      Margins.Right = 5
-      Margins.Bottom = 15
-      Anchors = []
-      Caption = 'Sort'
-      OnClick = btnSortClick
-      ExplicitTop = 153
-    end
-    object btnReverse: TSpeedButton
-      Left = 371
-      Top = 253
-      Width = 108
-      Height = 35
-      Margins.Left = 10
-      Margins.Top = 15
-      Margins.Right = 5
-      Margins.Bottom = 15
-      Anchors = []
-      Caption = 'Reverse'
-      OnClick = btnReverseClick
-      ExplicitTop = 223
-    end
-    object btnTrimExcess: TSpeedButton
-      Left = 493
-      Top = 374
-      Width = 108
-      Height = 35
-      Margins.Left = 10
-      Margins.Top = 15
-      Margins.Right = 5
-      Margins.Bottom = 15
-      Anchors = []
-      Caption = 'TrimExcess'
-      OnClick = btnTrimExcessClick
-      ExplicitTop = 364
-    end
-    object btnClear: TSpeedButton
-      Left = 371
-      Top = 314
-      Width = 108
-      Height = 35
-      Margins.Left = 10
-      Margins.Top = 15
-      Margins.Right = 5
-      Margins.Bottom = 15
-      Anchors = []
-      Caption = 'Clear'
-      OnClick = btnClearClick
-      ExplicitTop = 294
+    object Panel1: TPanel
+      Left = 203
+      Top = 0
+      Width = 202
+      Height = 70
+      Align = alClient
+      BevelOuter = bvNone
+      TabOrder = 2
+      ExplicitLeft = 201
+      object Label1: TLabel
+        AlignWithMargins = True
+        Left = 10
+        Top = 10
+        Width = 182
+        Height = 15
+        Margins.Left = 10
+        Margins.Top = 10
+        Margins.Right = 10
+        Margins.Bottom = 0
+        Align = alTop
+        Caption = 'Selecione um valor'
+        ExplicitWidth = 100
+      end
+      object SpinEdit1: TSpinEdit
+        AlignWithMargins = True
+        Left = 10
+        Top = 35
+        Width = 182
+        Height = 24
+        Margins.Left = 10
+        Margins.Top = 10
+        Margins.Right = 10
+        Margins.Bottom = 0
+        Align = alTop
+        MaxValue = 1000
+        MinValue = 1
+        TabOrder = 0
+        Value = 1
+      end
     end
   end
 end
