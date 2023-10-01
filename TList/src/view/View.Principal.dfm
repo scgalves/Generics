@@ -37,7 +37,7 @@ object ViewPrincipal: TViewPrincipal
         Value = 33.333333333333340000
       end
       item
-        Value = 33.333333333333310000
+        Value = 33.333333333333340000
       end>
     ControlCollection = <
       item
@@ -80,7 +80,7 @@ object ViewPrincipal: TViewPrincipal
         Value = 16.666666666666670000
       end
       item
-        Value = 16.666666666666640000
+        Value = 16.666666666666670000
       end>
     TabOrder = 0
     ExplicitWidth = 604
@@ -102,9 +102,6 @@ object ViewPrincipal: TViewPrincipal
       Align = alClient
       ReadOnly = True
       TabOrder = 0
-      ExplicitLeft = 211
-      ExplicitWidth = 383
-      ExplicitHeight = 331
     end
     object RadioGroup1: TRadioGroup
       AlignWithMargins = True
@@ -133,8 +130,6 @@ object ViewPrincipal: TViewPrincipal
         'TrimExcess')
       TabOrder = 1
       OnClick = RadioGroup1Click
-      ExplicitWidth = 181
-      ExplicitHeight = 331
     end
     object btnOk: TSpeedButton
       Left = 61
@@ -154,7 +149,6 @@ object ViewPrincipal: TViewPrincipal
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitLeft = 201
       object Label1: TLabel
         AlignWithMargins = True
         Left = 10

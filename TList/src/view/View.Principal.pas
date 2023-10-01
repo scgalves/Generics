@@ -44,7 +44,7 @@ var
   I: Cardinal;
   LEncontrouItem: Boolean;
 begin
-  if (Lista.Count = 0) and (RadioGroup1.ItemIndex in [1..3, 5, 6]) then
+  if (Lista.Count = 0) and (RadioGroup1.ItemIndex in [1..3, 5, 6, 8]) then
     TratarListaVazia(Sender);
 
   case RadioGroup1.ItemIndex of
@@ -121,8 +121,8 @@ begin
     10: // Capacity
       Memo1.Lines.Add(Format(' -> Capacity (capacidade da lista reservada na memória): %d.', [Lista.Capacity]));
     11: // TrimExcess
-      {A capacidade da fila na memória não é alterada após itens serem incluídos e excluídos.
-      O TrimExcess faz um Trim na capacidade da fila na memória, de acordo com a quantidade de itens que existirem.}
+      {A capacidade da lista na memória não é alterada após itens serem incluídos e excluídos.
+      O TrimExcess faz um Trim na capacidade da lista, de acordo com a quantidade de itens que existirem.}
       begin
         Lista.TrimExcess;
         Memo1.Lines.Add(' -> O TrimExcess foi executado.');
