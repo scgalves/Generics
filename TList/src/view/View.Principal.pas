@@ -26,6 +26,7 @@ type
     procedure Notificacao(Sender: TObject; const Item: Integer; Action: TCollectionNotification);
     function ListarItens: string;
     procedure TratarListaVazia(Sender: TObject);
+    function EncontrouNaLista(AValor: Integer): Boolean;
   public
     { Public declarations }
   end;
@@ -42,11 +43,7 @@ implementation
 procedure TViewPrincipal.btnOkClick(Sender: TObject);
 var
   I: Cardinal;
-  LEncontrouItem: Boolean;
 begin
-  if (Lista.Count = 0) and (RadioGroup1.ItemIndex in [1..3, 5, 6, 8]) then
-    TratarListaVazia(Sender);
-
   case RadioGroup1.ItemIndex of
     -1: Memo1.Lines.Add('Nenhuma opção foi selecionada.');
     0: // Add
@@ -56,32 +53,26 @@ begin
       end;
     1: // Insert #2
       begin
+        if Lista.Count = 0 then
+          TratarListaVazia(Sender);
 
         Lista.Insert(1, SpinEdit1.Value);
-        Memo1.Lines.Add(Format(' -> Insert (o item "%d" foi inserido na posição #2 da lista).', [SpinEdit1.Value]));
+        Memo1.Lines.Add(Format(' -> Insert (o item "%d" foi inserido no índice #1 da lista).', [SpinEdit1.Value]));
       end;
     2: // Delete
       begin
-        var LItemLista: Cardinal;
-        LItemLista := 0;
+        if Lista.Count = 0 then
+          TratarListaVazia(Sender);
 
-        for I := 0 to Pred(Lista.Count) do
-          LItemLista := Lista[I];
-
-        Memo1.Lines.Add(Format(' -> Delete (o último item da lista "%d" foi removido).', [LItemLista]));
+        Memo1.Lines.Add(Format(' -> Delete (o último item da lista "%d" foi removido).', [Pred(Lista.Count)]));
         Lista.Delete(Pred(Lista.Count));
       end;
     3: // Extract
       begin
-        LEncontrouItem := False;
-        for I := 0 to Pred(Lista.Count) do
-          if Lista[I] = SpinEdit1.Value then
-          begin
-            LEncontrouItem := True;
-            Break;
-          end;
+        if Lista.Count = 0 then
+          TratarListaVazia(Sender);
 
-        if not LEncontrouItem then
+        if not EncontrouNaLista(SpinEdit1.Value) then
           Memo1.Lines.Add(Format(' -> Extract (o item "%d" não consta na lista).', [SpinEdit1.Value]))
         else
         begin
@@ -90,37 +81,97 @@ begin
         end;
       end;
     4: // List
-      Memo1.Lines.Add(Format(' -> List (itens da lista): %s.', [ListarItens]));
+      begin
+        if Lista.Count = 0 then
+          TratarListaVazia(Sender);
+
+        Memo1.Lines.Add(Format(' -> List (itens da lista): %s.', [ListarItens]));
+      end;
     5: // Sort
       begin
+        if Lista.Count = 0 then
+          TratarListaVazia(Sender);
+
         Lista.Sort;
         Memo1.Lines.Add(Format(' -> Sort (itens da lista): %s.', [ListarItens]));
       end;
     6: // Reverse
       begin
+        if Lista.Count = 0 then
+          TratarListaVazia(Sender);
         { Em testes, observei que sem executar o Sort pela primeira vez, a lista não era corretamente ordenada.
         Sendo assim, aciono o Sorte antes do Reverse. }
         Lista.Sort;
         Lista.Reverse;
         Memo1.Lines.Add(Format(' -> Reverse (itens da lista): %s.', [ListarItens]));
       end;
-    7: // Count
+    7: // IndexOf
+      begin
+        if Lista.Count = 0 then
+          TratarListaVazia(Sender);
+
+        if not EncontrouNaLista(SpinEdit1.Value) then
+          Memo1.Lines.Add(Format(' -> IndexOf (o item "%d" não consta na lista).', [SpinEdit1.Value]))
+        else
+          Memo1.Lines.Add(Format(' -> IndexOf (índice do item "%d" desde o início da lista): %d.', [SpinEdit1.Value,
+            Lista.IndexOf(SpinEdit1.Value)]));
+      end;
+    8: // LastIndexOf
+      begin
+        if Lista.Count = 0 then
+          TratarListaVazia(Sender);
+
+        if not EncontrouNaLista(SpinEdit1.Value) then
+          Memo1.Lines.Add(Format(' -> LastIndexOf (o item "%d" não consta na lista).', [SpinEdit1.Value]))
+        else
+          Memo1.Lines.Add(Format(' -> LastIndexOf (índice do item "%d" desde o fim da lista): %d.', [SpinEdit1.Value,
+            Lista.LastIndexOf(SpinEdit1.Value)]));
+      end;
+    9: // Contains
+      begin
+        if Lista.Count = 0 then
+          TratarListaVazia(Sender);
+
+        if Lista.Contains(SpinEdit1.Value) then
+          Memo1.Lines.Add(Format(' -> Contains (a lista contém o item "%d"): Verdadeiro.', [SpinEdit1.Value]))
+        else
+          Memo1.Lines.Add(Format(' -> Contains (a lista contém o item "%d"): Falso.', [SpinEdit1.Value]));
+      end;
+    10: // Last
+      Memo1.Lines.Add(Format(' -> Last (último item da lista): %d.', [Pred(Lista.Count)]));
+    11: // Exchange
+      begin
+        if Lista.Count = 0 then
+          TratarListaVazia(Sender);
+
+        if Lista.Count < 2 then
+        begin
+          Memo1.Lines.Add(' -> Exchange (quantidade insuficiente de itens na lista).');
+          Exit;
+        end
+        else
+        begin
+          Lista.Exchange(1, 0);
+          Memo1.Lines.Add(' -> Exchange (os itens dos índices #1 e #0 foram permutados).');
+        end;
+      end;
+    12: // Count
       Memo1.Lines.Add(Format(' -> Count (quantidade de itens da lista): %d.' , [Lista.Count]));
-    8: // Clear
+    13: // Clear
       begin
         Memo1.Lines.Add(' -> Clear (em 3 segundos a lista será apagada).');
         Sleep(3000);
         Lista.Clear;
         Memo1.Lines.Clear;
       end;
-    9: // OnNotity
+    14: // OnNotity
       begin
         Lista.OnNotify := Notificacao;
         Memo1.Lines.Add('O OnNotity foi ativado; eventos serão informados.');
       end;
-    10: // Capacity
+    15: // Capacity
       Memo1.Lines.Add(Format(' -> Capacity (capacidade da lista reservada na memória): %d.', [Lista.Capacity]));
-    11: // TrimExcess
+    16: // TrimExcess
       {A capacidade da lista na memória não é alterada após itens serem incluídos e excluídos.
       O TrimExcess faz um Trim na capacidade da lista, de acordo com a quantidade de itens que existirem.}
       begin
@@ -128,6 +179,20 @@ begin
         Memo1.Lines.Add(' -> O TrimExcess foi executado.');
       end;
   end;
+end;
+
+function TViewPrincipal.EncontrouNaLista(AValor: Integer): Boolean;
+var
+  I: Cardinal;
+begin
+  Result := False;
+
+  for I := 0 to Pred(Lista.Count) do
+    if Lista[I] = AValor then
+    begin
+      Result := True;
+      Break;
+    end;
 end;
 
 procedure TViewPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);

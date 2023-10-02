@@ -31,56 +31,80 @@ object ViewPrincipal: TViewPrincipal
     BevelOuter = bvNone
     ColumnCollection = <
       item
-        Value = 33.333333333333340000
+        Value = 12.500000000000000000
       end
       item
-        Value = 33.333333333333340000
+        Value = 12.500000000000000000
       end
       item
-        Value = 33.333333333333340000
+        Value = 12.500000000000000000
+      end
+      item
+        Value = 12.500000000000000000
+      end
+      item
+        Value = 12.500000000000000000
+      end
+      item
+        Value = 12.500000000000000000
+      end
+      item
+        Value = 12.500000000000000000
+      end
+      item
+        Value = 12.500000000000000000
       end>
     ControlCollection = <
       item
-        Column = 1
-        ColumnSpan = 2
+        Column = 4
+        ColumnSpan = 4
         Control = Memo1
         Row = 1
-        RowSpan = 5
+        RowSpan = 7
       end
       item
         Column = 0
+        ColumnSpan = 4
         Control = RadioGroup1
         Row = 0
-        RowSpan = 5
-      end
-      item
-        Column = 0
-        Control = btnOk
-        Row = 5
+        RowSpan = 7
       end
       item
         Column = 1
+        ColumnSpan = 2
+        Control = btnOk
+        Row = 7
+      end
+      item
+        Column = 4
+        ColumnSpan = 2
         Control = Panel1
         Row = 0
       end>
     RowCollection = <
       item
-        Value = 16.666666666666670000
+        Value = 12.500000000000000000
       end
       item
-        Value = 16.666666666666670000
+        Value = 12.500000000000000000
       end
       item
-        Value = 16.666666666666670000
+        Value = 12.500000000000000000
       end
       item
-        Value = 16.666666666666670000
+        Value = 12.500000000000000000
       end
       item
-        Value = 16.666666666666670000
+        Value = 12.500000000000000000
       end
       item
-        Value = 16.666666666666670000
+        Value = 12.500000000000000000
+      end
+      item
+        Value = 12.500000000000000000
+      end
+      item
+        Value = 12.500000000000000000
       end>
     TabOrder = 0
     ExplicitWidth = 604
@@ -90,10 +114,10 @@ object ViewPrincipal: TViewPrincipal
       422)
     object Memo1: TMemo
       AlignWithMargins = True
-      Left = 213
-      Top = 80
-      Width = 385
-      Height = 332
+      Left = 314
+      Top = 63
+      Width = 284
+      Height = 349
       Margins.Left = 10
       Margins.Top = 10
       Margins.Right = 10
@@ -102,27 +126,37 @@ object ViewPrincipal: TViewPrincipal
       Align = alClient
       ReadOnly = True
       TabOrder = 0
+      ExplicitLeft = 211
+      ExplicitTop = 80
+      ExplicitWidth = 383
+      ExplicitHeight = 331
     end
     object RadioGroup1: TRadioGroup
       AlignWithMargins = True
       Left = 10
       Top = 10
-      Width = 183
-      Height = 332
+      Width = 284
+      Height = 349
       Margins.Left = 10
       Margins.Top = 10
       Margins.Right = 10
       Margins.Bottom = 10
       Align = alClient
       Caption = 'Op'#231#245'es'
+      Columns = 2
       Items.Strings = (
         'Add'
-        'Insert #2'
+        'Insert #1'
         'Delete'
         'Extract'
         'List'
         'Sort'
         'Reverse'
+        'IndexOf'
+        'LastIndexOf'
+        'Contains'
+        'Last'
+        'Exchange #1 -> #0'
         'Count'
         'Clear'
         'OnNotify'
@@ -130,47 +164,52 @@ object ViewPrincipal: TViewPrincipal
         'TrimExcess')
       TabOrder = 1
       OnClick = RadioGroup1Click
+      ExplicitWidth = 181
+      ExplicitHeight = 331
     end
     object btnOk: TSpeedButton
-      Left = 61
-      Top = 376
+      Left = 112
+      Top = 384
       Width = 80
       Height = 22
       Anchors = []
       Caption = 'OK (F2)'
       OnClick = btnOkClick
       ExplicitLeft = 76
+      ExplicitTop = 376
     end
     object Panel1: TPanel
-      Left = 203
+      Left = 304
       Top = 0
-      Width = 202
-      Height = 70
+      Width = 152
+      Height = 53
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 2
+      ExplicitLeft = 264
+      ExplicitTop = -3
+      ExplicitWidth = 173
       object Label1: TLabel
         AlignWithMargins = True
         Left = 10
         Top = 10
-        Width = 182
+        Width = 132
         Height = 15
         Margins.Left = 10
         Margins.Top = 10
         Margins.Right = 10
         Margins.Bottom = 0
         Align = alTop
-        Caption = 'Selecione um valor'
-        ExplicitWidth = 100
+        Caption = 'Selecione um n'#250'mero'
+        ExplicitWidth = 116
       end
       object SpinEdit1: TSpinEdit
         AlignWithMargins = True
         Left = 10
-        Top = 35
-        Width = 182
+        Top = 28
+        Width = 132
         Height = 24
         Margins.Left = 10
-        Margins.Top = 10
         Margins.Right = 10
         Margins.Bottom = 0
         Align = alTop
@@ -178,6 +217,8 @@ object ViewPrincipal: TViewPrincipal
         MinValue = 1
         TabOrder = 0
         Value = 1
+        ExplicitTop = 35
+        ExplicitWidth = 182
       end
     end
   end
