@@ -13,7 +13,7 @@ Projetos desenvolvidos em Delphi utilizando atributos genéricos (Generics).
 [...]
 
 # Tecnologia utilizada
-Delphi 11.3 CE Alexandria
+Delphi 11.3 CE Alexandria.
 
 # Autor
 Sérgio Carlos Guimarães Alves
