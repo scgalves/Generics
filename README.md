@@ -10,8 +10,7 @@ Projetos desenvolvidos em Delphi utilizando atributos genéricos (Generics).
 ## TStack
 [![Imagem 3](https://github.com/scgalves/Generics/blob/main/img/TStack-1.png)](https://github.com/scgalves/Generics/tree/main/TStack)
 ## TDictionary
-[...]
-
+[![Imagem 4](https://github.com/scgalves/Generics/blob/main/img/TDictionary-1.png)](https://github.com/scgalves/Generics/tree/main/TDictionary)
 # Tecnologia utilizada
 Delphi 11.3 CE Alexandria.
 
